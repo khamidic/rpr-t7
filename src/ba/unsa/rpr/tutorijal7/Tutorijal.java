@@ -1,6 +1,8 @@
 package ba.unsa.rpr.tutorijal7;
 
-public class Tutorijal {
+import java.io.Serializable;
+
+public class Tutorijal implements Serializable {
 
     public static void main(String[] args) {
 	// write your code here
