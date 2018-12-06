@@ -4,17 +4,24 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class UN implements Serializable {
-    ArrayList<Drzava> lista;
+    ArrayList<Drzava> drzave;
 
-    public UN(ArrayList<Drzava> lista) {
-        this.lista = lista;
+
+    public UN() {
+        drzave = null;
     }
 
-    public ArrayList<Drzava> getLista() {
-        return lista;
+    public UN(ArrayList<Drzava> drzave) {
+        this.drzave = drzave;
     }
 
-    public void setLista(ArrayList<Drzava> lista) {
-        this.lista = lista;
+    public ArrayList<Drzava> getDrzave() {
+        return drzave;
     }
+
+    public void setDrzave(ArrayList<Drzava> drzave) {
+        this.drzave = drzave;
+    }
+
+
 }
