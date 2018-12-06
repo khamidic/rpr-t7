@@ -1,5 +1,13 @@
 package ba.unsa.rpr.tutorijal7;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Serializable;
@@ -40,5 +48,37 @@ public class Tutorijal implements Serializable {
             System.out.println(e.getMessage());
         }
         return data;
+    }
+
+    public static UN ucitajXML(ArrayList<Grad> gradovi) {
+        ArrayList<Drzava> drzave = new ArrayList<>();
+
+        Document xmldoc = null;
+        try {
+            DocumentBuilder docReader = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            xmldoc = docReader.parse(new File("drzava.xml"));
+
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        Element root = xmldoc.getDocumentElement();
+        Element mjerenja = xmldoc.createElement("temperature");
+        root.normalize();
+        NodeList children = root.getChildNodes();
+
+        for(int i = 0; i < children.getLength(); i++) {
+            Node drzavaNode = children.item(i);
+            if(drzavaNode.getNodeType() == Node.ELEMENT_NODE) {
+                Drzava novaDrzava = new Drzava();
+                Grad noviGrad = new Grad();
+                Element drzavaElement = (Element) drzavaNode;
+                NodeList glavniGradElementi = ((Element) ((Element) drzavaNode).getElementsByTagName("glavnigrad"));
+                if(glavniGradElementi.getLength() >= 1) {
+
+                }
+            }
+        }
     }
 }
