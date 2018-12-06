@@ -56,4 +56,9 @@ public class Drzava implements Serializable {
     public void setGlavniGrad(Grad glavniGrad) {
         this.glavniGrad = glavniGrad;
     }
+
+    @Override
+    public String toString() {
+        return new String(naziv + " " + brojStanovnika + " " + povrsina + " " + glavniGrad.toString());
+    }
 }

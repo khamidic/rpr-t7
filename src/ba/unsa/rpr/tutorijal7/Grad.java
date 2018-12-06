@@ -1,17 +1,17 @@
 package ba.unsa.rpr.tutorijal7;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Grad implements Serializable {
     public String naziv;
     public int brojStanovnika;
-    public double[] temperatura = new double[1000];
-    public int ukupanBrojMjerenja = 1000;
-    public Grad(String ime, int broj, double[] t){
-        this.naziv = ime;
-        this.brojStanovnika = broj;
-        this.temperatura = t;
-        this.ukupanBrojMjerenja = temperatura.length;
+    ArrayList<Double> temperature;
+
+    public Grad(String naziv, int brojStanovnika, ArrayList<Double> temperature) {
+        this.naziv = naziv;
+        this.brojStanovnika = brojStanovnika;
+        this.temperature = temperature;
     }
 
     public String getNaziv() {
@@ -30,19 +30,21 @@ public class Grad implements Serializable {
         this.brojStanovnika = brojStanovnika;
     }
 
-    public double[] getTemperatura() {
-        return temperatura;
+    public ArrayList<Double> getTemperature() {
+        return temperature;
     }
 
-    public void setTemperatura(double[] temperatura) {
-        this.temperatura = temperatura;
+    public void setTemperature(ArrayList<Double> temperature) {
+        this.temperature = temperature;
     }
 
-    public int getUkupanBrojMjerenja() {
-        return ukupanBrojMjerenja;
-    }
-
-    public void setUkupanBrojMjerenja(int ukupanBrojMjerenja) {
-        this.ukupanBrojMjerenja = ukupanBrojMjerenja;
+    @Override
+    public String toString() {
+        String s = new String(naziv + " " + brojStanovnika);
+        if(temperature != null) {
+            s += "\nTemperature za " + naziv + ": ";
+            for(Double d : temperature) s += d + ", ";
+        }
+        return s;
     }
 }

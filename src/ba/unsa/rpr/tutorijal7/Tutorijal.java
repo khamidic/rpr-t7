@@ -7,4 +7,8 @@ public class Tutorijal implements Serializable {
     public static void main(String[] args) {
 	// write your code here
     }
+
+    public static void ucitajGradove() {
+
+    }
 }
